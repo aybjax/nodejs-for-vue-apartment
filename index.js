@@ -15,7 +15,15 @@ const storage = multer.diskStorage({
     }
 })
 
-app.use(multer({storage}).single('image'))
+app.use(multer({storage}).array('image', 4))
+
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Access-Control-Allow-Methods', '*')
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+    next()
+})
 
 app.get('/', (req, res) => {
     res.send("hello")
