@@ -5,7 +5,6 @@ const multer = require('multer')
 const app = express();
 
 app.use(bodyParser.json())
-// app.use(multer({dest: 'images'}).single('image'))
 const storage = multer.diskStorage({
     destination(req,file,cb){
         cb(null, 'images')
@@ -31,7 +30,7 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
     console.log(req.body)
-    console.log(req.file)
+    console.log(req.files)
     res.send({status: "ok"})
 } )
 
