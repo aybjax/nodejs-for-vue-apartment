@@ -36,7 +36,8 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
     console.log(req.body)
     console.log(req.files)
+    
     res.send({status: "ok"})
-} )
+})
 
 app.listen(3000)
